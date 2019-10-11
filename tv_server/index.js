@@ -4,6 +4,13 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server,{pingTimeout:60000});
 var path = require("path")
+var os = require( 'os' );
+
+var networkInterfaces = os.networkInterfaces( );
+
+//list interfaces
+console.log( networkInterfaces );
+
 
 //serve static remote files
 app.use("/static",express.static(path.join(__dirname,"static")))
