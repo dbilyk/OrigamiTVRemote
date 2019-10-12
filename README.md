@@ -8,4 +8,4 @@ You'll only really need the Origami Server app, which will spin up a local serve
 
 After that, you can open the demo origami project and check that origami is recieving commands from your phone remote. 
 
-##Then, you're on your own... :)
+## Then, you're on your own... :)
