@@ -7,6 +7,13 @@ var path = require("path")
 var ip = require("ip")
 const imessage = require('osa-imessage')
 
+//get phone or email input from the command line for imessage.
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+
 //serve static remote files
 app.use("/static",express.static(path.join(__dirname,"static")))
 
@@ -16,15 +23,17 @@ let PORT = 3001
 
 server.listen(PORT).on("error",()=>{return})
   
+console.log(ip.address("en0"))
+console.log(`\n\n\x1b[1mTo start controlling your origami prototype from your iPhone (Mac):\x1b[22m
+1) Go to Wifi > Create network... > create it (any name will do) and connect to it on your mac.\n
+  Once you're connected...\n
+2) On your iPhone, go to \x1b[1mSettings > Wi-Fi\x1b[22m, find and connect to the network you just made.\n
+  Then...\n
+3) Restart this program and enter your iMessage email below...\n`)
+askForImessage()
 
-// WARNING: app.listen(80) will NOT work here!
-
-let remote_id = null 
-let client_ids = []
-
-//server gets a request for remote > sends html + js to phone, sets up socket.
-//server is also listening to Origami endpoint.   
-
+// , and go to the link below:\n \x1b[1mhttp://${ip.address("en0")}:${PORT}/static/remote.html\x1b[22m on your phone OR
+//remote keys
 let keys = {
   left:"l",
   right:"r",
@@ -35,38 +44,38 @@ let keys = {
   home:"home"
 }
 
-
+//state passing var
 let nextProtoState = {key:null}
 
 
 
 app.get("/nextState", (req,res)=>{
   res.send(nextProtoState)
-  console.log(nextProtoState)
   nextProtoState.key = null
 })
 
 
 
-console.log(ip.address("en0"))
-console.log(`To start controlling your origami prototype from your phone (Mac):
-1) Go to Wifi > Create network... > create it and connect to it.
-2) Restart nodemon.
-3) Go to http://${ip.address("en0")}:${PORT}/static/remote.html on your phone.
-`)
 
-console.log(process.argv)
 
-//get phone or email input from the command line for imessage.
-const readline = require('readline').createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
 
-readline.question(`Enter your imessage email or phone number to recieve a link:`, (name) => {
-  imessage.send("+19254871286",`Open Origami Remote on your iPhone at: http://${ip.address("en0")}:${PORT}/static/remote.html.`)
-  readline.close()
-})
+function askForImessage(){
+  readline.question(`Email:`, (name) => {
+    //email regex
+    if(name.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+      imessage.send(name,`Open Origami Remote on your iPhone at: http://${ip.address("Wi-Fi")}:${PORT}/static/remote.html.`)
+      readline.close()
+  
+    }
+    else{
+      console.log("that wasn't a valid email... try again.")
+      readline.close()
+      askForImessage()
+    }
+  })
+}
+
+
 
 
 
