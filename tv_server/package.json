@@ -10,7 +10,9 @@
   },
   "description": "server for tv UI prototyping",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "ip": "^1.1.5"
+  },
   "author": "Dmitri Bilyk",
   "license": "ISC"
 }

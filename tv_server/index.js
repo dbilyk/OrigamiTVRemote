@@ -4,16 +4,13 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server,{pingTimeout:60000});
 var path = require("path")
-var os = require( 'os' );
-
-var networkInterfaces = os.networkInterfaces( );
-
-//list interfaces
-console.log( networkInterfaces );
+var ip = require("ip")
 
 
 //serve static remote files
 app.use("/static",express.static(path.join(__dirname,"static")))
+
+
 
 let PORT = 3001
 
@@ -49,15 +46,16 @@ app.get("/nextState", (req,res)=>{
 
 
 
+console.log(ip.address("en0"))
 console.log('listening on port ' + PORT)
 
 io.on('connection', function (socket) {
   socket.on('L', function () {
     nextProtoState.key = keys.left
     console.log("L");
-
+    
   })
-
+  
   socket.on('R', function () {
     nextProtoState.key = keys.right
     console.log("R");
