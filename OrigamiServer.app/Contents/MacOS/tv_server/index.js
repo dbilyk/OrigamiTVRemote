@@ -29,10 +29,11 @@ console.log(`\n\n\x1b[1mTo start controlling your origami prototype from your iP
   Once you're connected...\n
 2) On your iPhone, go to \x1b[1mSettings > Wi-Fi\x1b[22m, find and connect to the network you just made.\n
   Then...\n
-3) Restart this program and enter your iMessage email below...\n`)
+3) Restart this program and enter your iMessage email below OR...\n
+   Go to the link below:\n \x1b[1mhttp://${ip.address("en0")}:${PORT}/static/remote.html\x1b[22m on your phone.`)
+
 askForImessage()
 
-// , and go to the link below:\n \x1b[1mhttp://${ip.address("en0")}:${PORT}/static/remote.html\x1b[22m on your phone OR
 //remote keys
 let keys = {
   left:"l",
@@ -63,7 +64,7 @@ function askForImessage(){
   readline.question(`Email:`, (name) => {
     //email regex
     if(name.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
-      imessage.send(name,`Open Origami Remote on your iPhone at: http://${ip.address("Wi-Fi")}:${PORT}/static/remote.html.`)
+      imessage.send(name,`Open Origami Remote on your iPhone at: http://${ip.address("en0")}:${PORT}/static/remote.html.`)
       readline.close()
   
     }
