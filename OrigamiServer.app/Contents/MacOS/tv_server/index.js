@@ -6,6 +6,8 @@ var io = require('socket.io')(server,{pingTimeout:60000});
 var path = require("path")
 var ip = require("ip")
 const imessage = require('osa-imessage')
+var commands = require('./static/commands.js');
+
 
 //get phone or email input from the command line for imessage.
 const readline = require('readline').createInterface({
@@ -34,22 +36,7 @@ console.log(`\n\n\x1b[1mTo start controlling your origami prototype from your iP
 
 askForImessage()
 
-//remote keys
-let keys = {
-  left:"l",
-  right:"r",
-  up:"u",
-  down:"d",
-  ok:"ok",
-  back:"back",
-  home:"home",
-  RC:"RC",
-  volumeUp:"volumeUp",
-  volumeDn: "volumeDn",
-  mute:"mute",
-  CC:"CC",
-  more:"more"
-}
+
 
 //state passing var
 let nextProtoState = {key:null}
@@ -86,44 +73,17 @@ function askForImessage(){
 
 
 
+
+
 io.on('connection', function (socket) {
-  socket.on('L', function () {
-    nextProtoState.key = keys.left
-    console.log("L");
-    
-  })
+
+  //start listening for commands
+  for(let command in commands.key){
+    let commandVal = commands.key[command]
+    socket.on(commandVal, ()=>{
+      nextProtoState.key = commandVal
+      console.log(commandVal)
+    })
+  }
   
-  socket.on('R', function () {
-    nextProtoState.key = keys.right
-    console.log("R");
-
-  });
-
-  socket.on('U', function () {
-    nextProtoState.key = keys.up
-    console.log("U");
-
-  });
-
-  socket.on('D', function () {
-    nextProtoState.key = keys.down
-    console.log("D");
-
-  });
-
-  socket.on('OK', function () {
-    nextProtoState.key = keys.ok
-    console.log("OK");
-
-  });
-
-  socket.on('BACK', function () {
-    console.log("BACK");
-
-  });
-
-  socket.on('HOME', function () {
-    console.log("HOME");
-
-  });
 });

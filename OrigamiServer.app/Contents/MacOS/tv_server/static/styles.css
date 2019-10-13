@@ -62,45 +62,45 @@ body{
 
 }
 
-.up{
+.u{
   position: absolute;
   top:-140px;
   left:190px;
   transform: rotateZ(45deg);
 }
-.up > i {
+.u > i {
   transform: rotateZ(-45deg) translateY(140px);
 }
 
 
 
-.down{
+.d{
   position: absolute;
   top:730px;
   left:190px;
   transform: rotateZ(45deg);
 }
-.down > i {
+.d > i {
   transform: rotateZ(-45deg) translateY(-140px);
 }
 
-.left{
+.l{
   position: absolute;
   top:290px;
   left:-260px;
   transform: rotateZ(45deg);
 }
-.left > i {
+.l > i {
   transform: rotateZ(-45deg) translateX(160px);
 }
 
-.right{
+.r{
   position: absolute;
   top:290px;
   right:-260px;
   transform: rotateZ(45deg);
 }
-.right > i {
+.r > i {
   transform: rotateZ(-45deg) translateX(-160px);
 }
 
