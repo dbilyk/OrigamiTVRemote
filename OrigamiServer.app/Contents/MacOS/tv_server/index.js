@@ -42,7 +42,13 @@ let keys = {
   down:"d",
   ok:"ok",
   back:"back",
-  home:"home"
+  home:"home",
+  RC:"RC",
+  volumeUp:"volumeUp",
+  volumeDn: "volumeDn",
+  mute:"mute",
+  CC:"CC",
+  more:"more"
 }
 
 //state passing var
