@@ -1,6 +1,8 @@
 #!/bin/bash
 BASEDIR=$(dirname "$0")
 cd "$BASEDIR"/tv_server
-sudo npm update --save
+sudo chown -R $USER ./node_modules
+chmod +w ./node_modules
+npm update --save
 nodemon index.js
 
