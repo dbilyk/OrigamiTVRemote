@@ -57,7 +57,7 @@ function askForImessage(){
   readline.question(`Email:`, (name) => {
     //email regex
     if(name.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
-      imessage.send(name,`Open Origami Remote on your iPhone at: http://${ip.address("en0")}:${PORT}/static/remote.html.`)
+      imessage.send(name,`Open Origami Remote on your iPhone at: http://${ip.address("en0")}:${PORT}/static/remote.html`).catch(err=>{console.log("Failed to send iMessage. Sometimes restarting the server solves the problem.")})
       readline.close()
   
     }
