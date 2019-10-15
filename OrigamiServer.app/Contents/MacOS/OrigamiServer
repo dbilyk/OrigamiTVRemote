@@ -1,4 +1,3 @@
 #!/bin/bash
 BASEDIR=$(dirname "$0")
-
 open "$BASEDIR"/launcher.command
