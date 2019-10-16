@@ -4,6 +4,7 @@
 
   return exports.key = {
     left:"l",
+    right:"r",
     up:"u",
     down:"d",
     ok:"ok",
@@ -12,10 +13,13 @@
     RC:"RC",
     volumeUp:"volumeUp",
     volumeDn: "volumeDn",
-    mute:"mute",
-    CC:"CC",
-    more:"more",
-    right:"r",
+    muteOn:"muteOn",
+    muteOff:"muteOff",
+    powerOn:"powerOn",
+    powerOff:"powerOff",
+    CCON:"CCON",
+    CCOFF:"CCOFF",
+    more:"more"
   }
 
 }(typeof exports === 'undefined' ? this.COMMANDS = {}: exports));
