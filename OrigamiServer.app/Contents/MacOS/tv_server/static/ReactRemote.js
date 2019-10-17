@@ -18,19 +18,20 @@ let getIP = ()=>{
 function StartSocket(){
   const socket = io(getIP());
 
-  for(let commandKey in COMMANDS.key){
-    let commandVal = COMMANDS.key[commandKey]
-    let remoteButton = document.querySelector("." + commandVal)
-    console.log(remoteButton)
-    //if there's a node in the dom named with one of the values in the commands object, then attach socket listener.
-    if(remoteButton){
-      remoteButton.addEventListener("click",(e)=>{
-        socket.emit(commandVal)
-        console.log(commandVal)
-      })      
-    }
+  // for(let commandKey in COMMANDS.key){
+  //   let commandVal = COMMANDS.key[commandKey]
+  //   let remoteButton = document.querySelector("." + commandVal)
+  //   console.log(remoteButton)
+  //   //if there's a node in the dom named with one of the values in the commands object, then attach socket listener.
+  //   if(remoteButton){
+  //     remoteButton.addEventListener("click",(e)=>{
+  //       socket.emit(commandVal)
+  //       console.log(commandVal)
+  //     })      
+  //   }
 
-  }
+  // }
+  return socket
 
 }
 
@@ -40,7 +41,15 @@ function StartSocket(){
 
 
 //svg remote
-const SVGRemote = props => (
+const SVGRemote = props => {
+  let state = props.state
+  let btnPressSpeed = 0.2
+
+  
+
+
+  
+  return (
   <svg width={375*3} height={653*3} viewBox="0 0 375 653">
     <defs>
       <rect id="prefix__a" x={0.5} y={0.846} width={191} height={54} rx={27} />
@@ -227,7 +236,7 @@ const SVGRemote = props => (
       </text>
     </g>
   </svg>
-)
+)}
 
 
 //TODO: make this a class
@@ -240,63 +249,62 @@ let ReactRemote = ()=>{
         iconDisabled: "icon__disabled"
 
     }
+    
+    press = (animSpeed, state, key)=>{
+      if(!state.pressed[key]){
+        let newState = {...state}
+        newState.pressed[key] = true
+        setState(newState)
+        setTimeout(()=>{
+        newState[key] = newState[key] ? false:true
+        },animSpeed)
+      }
+
+    },
+    toggle = (state,key)=>{
+      let newState = {...state}
+      newState.active[key] = state.active[key] ? false:true
+      setState(newState)
+    }
 
     let [state, setState] = React.useState({
-        classes:{
-          vol:"",
-          volDnBG:"",
-          volDnIcon:"",
-          volUpBG:"",
-          volUpIcon:"",
-          muteBG:"",
-          muteIcon:"",
-          ccBG:"",
-          ccIcon:"",
-          volUpBG:"",
-          volUpIcon:"",
-          keyboardBG:"",
-          keyboardIcon:"",
-          backBG:"",
-          backIcon:"",
-          homeBG:"",
-          homeIcon:"",
-          powerBG:"",
-
-
-
-        },
-        callbacks:{
-          toggleMomentarily:(speed, key)=>{
-            let newState = {...state}
-            newState[key] = newState[key] ? false:true
-            setState(newState)
-            setTimeout(()=>{
-            newState[key] = newState[key] ? false:true
-            },speed)
-          },
-          toggle:(key)=>{
-            let newState = state[key] ? false:true
-            setState(newState)
-          }
-        }
-
-    })
-
-    let addClassMomentarily = (stateKey)=>{
-
-    }
-    
-    React.useEffect(()=>{
-        console.log("remounted")
-    })
-
-    return(<div className = {""}>
+      pressed:{
+        volUp:false,
+        volDn:false,
+        keyboard:false,
+        back:false,
+        home:false,
+        left:false,
+        right:false,
+        up:false,
+        down:false,
+        ok:false
         
-        { <SVGRemote classes = {state.classes} callbacks = {state.callbacks}/> }
+      },   
+      active:{
+        mute:false,
+        cc:false,
+        power:true
+
+      }      
+    })
+    
+    React.useEffect(()=>{        
+      let socket = StartSocket()
+      let newState = {...state}
+      newState.socket = socket
+      newState.callbacks.press = press
+      newState.callbacks.toggle = toggle
+      setState(newState)
+    })
+
+    return(<div>
+        { <SVGRemote state = {state} /> }
     </div>)
   }
 
   ReactDOM.render(<ReactRemote />,document.querySelector("#root"))
 
-//call this within component mounting
-StartSocket()
+
+
+  //click > callback with on/active key > state gets updated on parent > pass state down > resolve new classes based on state > 

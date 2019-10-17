@@ -9,8 +9,29 @@ body{
 svg {
   touch-action: manipulation;
 }
-circle{
-  fill:#2c2d2e;
+
+
+.navIcon{
+
+}
+
+.volIcon{
+  
+}
+
+
+.btn__pressed > circle{
+  
+}
+
+.btn__pressed > path {
+  transition: opacity 0.1 ease-in-out;
+  fill: #006ece;
+}
+
+.btn__disabled > circle path {
+  transition: opacity 0.2 ease-in-out;
+  opacity: 0.3;
 }
 
 
