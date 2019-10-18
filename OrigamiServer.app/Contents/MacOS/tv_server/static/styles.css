@@ -15,8 +15,17 @@ svg {
 
 }
 
-.volIcon{
-  
+
+.volUp path:first-child, .volDn path:first-child{
+  opacity:0;
+}
+
+
+.volUp.btn_pressed > path:first-child, .volDn.btn_pressed > path:first-child{
+  opacity:1;
+}
+.volBtn.btn_pressed > path:last-child{
+
 }
 
 
