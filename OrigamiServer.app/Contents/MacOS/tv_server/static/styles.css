@@ -21,16 +21,16 @@ svg {
 
 
 .btn__pressed > circle{
-  
+
 }
 
 .btn__pressed > path {
-  transition: opacity 0.1 ease-in-out;
+  transition: opacity 0.1s ease-in-out;
   fill: #006ece;
 }
 
-.btn__disabled > circle path {
-  transition: opacity 0.2 ease-in-out;
+.btn__disabled > circle, .btn__disabled > path {
+  transition: opacity 0.2s ease-in-out;
   opacity: 0.3;
 }
 

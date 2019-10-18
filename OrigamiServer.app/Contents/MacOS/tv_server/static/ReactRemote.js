@@ -45,7 +45,16 @@ const SVGRemote = props => {
   let state = props.state
   let btnPressSpeed = 0.2
 
+  let disabled = state.disabled?" btn__disabled ":""
   
+
+  let c = {
+    vol:{
+      disabled: disabled + 
+    }
+  }
+
+
 
 
   
@@ -186,6 +195,7 @@ const SVGRemote = props => {
         </g>
         <g mask="url(#prefix__d)">
           <path
+            // RIGHT
             d="M339.5 8.12v363.188L228.369 260.177c-39.052-39.053-39.052-102.37 0-141.422l.158-.158L339.5 8.12z"
             fill="#38393A"
           />
@@ -196,6 +206,7 @@ const SVGRemote = props => {
           />
         </g>
         <g mask="url(#prefix__d)">
+          {/* OK */}
           <g transform="translate(131.75 151.346)">
             <circle fill="#38393A" cx={38.132} cy={38.132} r={38.132} />
             <text
@@ -211,6 +222,7 @@ const SVGRemote = props => {
           </g>
         </g>
         <g mask="url(#prefix__d)">
+          {/* DOWN */}
           <path
             d="M.5 378.846H340L214.548 253.393c-24.603-24.603-64.493-24.603-89.096 0L.5 378.346"
             fill="#38393A"
@@ -286,7 +298,8 @@ let ReactRemote = ()=>{
         cc:false,
         power:true
 
-      }      
+      },
+      disabled:false
     })
     
     React.useEffect(()=>{        
