@@ -42,7 +42,7 @@ function StartSocket(){
 //svg remote
 const SVGRemote = props => {
   let state = props.state,
-  btnPressSpeed = 200,
+  btnPressSpeed = 150,
   disabledStyles = " btn__disabled",
   pressedStyles = " btn__pressed"
 
@@ -61,7 +61,7 @@ const SVGRemote = props => {
     power: "btn" + (state.active.power?pressedStyles: "") + disabled,
 
     back: "btn" + (state.pressed.back?pressedStyles: "") + disabled,
-    home: "btn" + (state.pressed.homer?pressedStyles: "") + disabled,
+    home: "btn" + (state.pressed.home?pressedStyles: "") + disabled,
     keyboard: "btn" + (state.pressed.keyboard?pressedStyles: "") + disabled,
 
     up   : "navIcon" + (state.pressed.up?pressedStyles: "") + disabled,
