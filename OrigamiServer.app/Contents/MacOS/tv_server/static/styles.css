@@ -52,11 +52,13 @@ svg {
 /*resting volume state*/
 .volUp > path:first-child, .volDn > path:first-child{
   transition: opacity 0.2s ease-in-out; 
-  opacity:0 !important;
+  opacity:0;
 }
 
 .volUp > path:last-child, .volDn > path:last-child{
   transition: fill-opacity fill 0.2s ease-in-out; 
+  fill-opacity: 0.5;
+  fill: #fff;
 }
 
 .volUp.btn__pressed > path:first-child, .volDn.btn__pressed > path:first-child{

@@ -42,7 +42,7 @@ function StartSocket(){
 //svg remote
 const SVGRemote = props => {
   let state = props.state,
-  btnPressSpeed = 0.2,
+  btnPressSpeed = 200,
   disabledStyles = " btn__disabled",
   pressedStyles = " btn__pressed"
 
@@ -53,13 +53,22 @@ const SVGRemote = props => {
 
   let c = {
     vol:{
-      up: "volUp" + (state.pressed.volUp?pressedStyles:"") + disabledStyles,
-      dn: "volDn" + (state.pressed.volDn?pressedStyles:"") + disabledStyles,
+      up: "volUp" + (state.pressed.volUp?pressedStyles:"") + disabled,
+      dn: "volDn" + (state.pressed.volDn?pressedStyles:"") + disabled,
     },
-    cc   : state.active.cc?pressedStyles   : "",
-    mute : state.active.mute?pressedStyles : "",
-    power: state.active.power?pressedStyles: "",
+    cc   : "btn" + (state.active.cc?pressedStyles   : "") + disabled,
+    mute : "btn" + (state.active.mute?pressedStyles : "") + disabled,
+    power: "btn" + (state.active.power?pressedStyles: "") + disabled,
 
+    back: "btn" + (state.pressed.back?pressedStyles: "") + disabled,
+    home: "btn" + (state.pressed.homer?pressedStyles: "") + disabled,
+    keyboard: "btn" + (state.pressed.keyboard?pressedStyles: "") + disabled,
+
+    up   : "navIcon" + (state.pressed.up?pressedStyles: "") + disabled,
+    down : "navIcon" + (state.pressed.down?pressedStyles: "") + disabled,
+    left : "navIcon" + (state.pressed.left?pressedStyles: "") + disabled,
+    right: "navIcon" + (state.pressed.right?pressedStyles: "") + disabled,
+    ok   : "navIcon" + (state.pressed.ok?pressedStyles: "") + disabled,
   }
 
 
@@ -83,10 +92,9 @@ const SVGRemote = props => {
           <use xlinkHref="#prefix__a" />
         </mask>
         <use fill="#2C2D2E" xlinkHref="#prefix__a" />
-        <g className = {"volDn" } mask="url(#prefix__b)" fill="#FFF">
+        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,"volDn")}} className = {c.vol.dn} mask="url(#prefix__b)" fill="#FFF">
           <path  
             //VolDown BG
-            onClick     = {()=>{state.callbacks.press(btnPressSpeed,"volDn")}}
             d           = "M27.5.846H96v54H27.5c-14.912 0-27-12.089-27-27 0-14.912 12.088-27 27-27z"
             fillOpacity = {0.057}
           />
@@ -97,10 +105,9 @@ const SVGRemote = props => {
             fillRule    = "nonzero"
             />
         </g>
-        <g className= {"volUp"} mask="url(#prefix__b)" fill="#FFF">
+        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,"volUp")}} className= {c.vol.up} mask="url(#prefix__b)" fill="#FFF">
           <path
             //volUpBG
-            onClick     = {()=>{state.callbacks.press(btnPressSpeed,"volUp")}}
             d           = "M164.868.846h-68.5v54h68.5c14.912 0 27-12.089 27-27 0-14.912-12.088-27-27-27z"
             fillOpacity = {0.057}
           />
@@ -118,10 +125,9 @@ const SVGRemote = props => {
           mask          = "url(#prefix__b)"
         />
       </g>
-      <g className = {"btn" } transform="translate(17.104 557.15)">
+      <g onClick = {()=>{state.callbacks.toggle("mute")}} className = {c.mute } transform="translate(17.104 557.15)">
         <circle 
           //MUTE BG
-          onClick = {()=>{state.callbacks.toggle("mute")}}
           fill    = "#2C2D2E" cx = {28.896} cy = {28.851} r = {28} />
         <path
           //MUTE icon
@@ -131,10 +137,9 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g className = {"btn" } transform="translate(300.5 557.154)">
+      <g onClick = {()=>{state.callbacks.toggle("cc")}} className = {c.cc } transform="translate(300.5 557.154)">
         <circle 
           //CC BG
-          onClick = {()=>{state.callbacks.toggle("cc")}}
           fill    = "#2C2D2E"
           cx      = {28.5}
           cy      = {28.846}
@@ -148,10 +153,9 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g className = {"btn" } transform="translate(17.918 477.572)">
+      <g onClick = {()=>{state.callbacks.press(btnPressSpeed,"back")}} className = {c.back } transform="translate(17.918 477.572)">
         <circle 
           //BACK BG
-          onClick = {()=>{state.callbacks.press(btnPressSpeed,"back")}}
           fill    = "#2C2D2E"
           cx      = {28.082}
           cy      = {28.428}
@@ -164,10 +168,9 @@ const SVGRemote = props => {
           fillRule = "nonzero"
         />
       </g>
-      <g className = {"btn" } transform="translate(159.5 478)">
+      <g onClick = {()=>{state.callbacks.press(btnPressSpeed,"home")}} className = {c.home } transform="translate(159.5 478)">
         <circle     
           //HOME BG    
-          onClick = {()=>{state.callbacks.press(btnPressSpeed,"home")}}
           fill    = "#2C2D2E"
           cx      = {28}
           cy      = {28}
@@ -181,10 +184,9 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g className = {"btn" } transform="translate(301 478)">
+      <g onClick = {()=>{state.callbacks.press(btnPressSpeed,"keyboard")}} className = {c.keyboard } transform="translate(301 478)">
         <circle
           //KEYBOARD BG
-          onClick = {()=>{state.callbacks.press(btnPressSpeed,"keyboard")}}
           fill    = "#2C2D2E"
           cx      = {28}
           cy      = {28}
@@ -198,10 +200,9 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g className = {"btn" } transform="translate(17.496 20.154)">
+      <g onClick = {()=>{state.callbacks.toggle("power")}} className = {c.power } transform="translate(17.496 20.154)">
         <circle 
           //POWER BG
-          onClick = {()=>{state.callbacks.toggle("power")}}
           fill    = "#343437"
           cx      = {18.504}
           cy      = {18.846}
@@ -220,10 +221,9 @@ const SVGRemote = props => {
           <use xlinkHref="#prefix__c" />
         </mask>
         <use fill="#2C2D2E" xlinkHref="#prefix__c" />
-        <g className = {"navIcon"} mask="url(#prefix__d)">
+        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,"left")}} className = {c.left} mask="url(#prefix__d)">
           <path
             //LEFT BG
-            onClick = {()=>{state.callbacks.press(btnPressSpeed,"left")}}
             d       = "M.5 8.12v363.188l111.131-111.131c39.052-39.053 39.052-102.37 0-141.422a99.474 99.474 0 00-.158-.158L.5 8.12z"
             fill    = "#38393A"
             mask    = "url(#prefix__d)"
@@ -235,10 +235,9 @@ const SVGRemote = props => {
             d        = "M59.61 171.554a2.5 2.5 0 10-4.32-2.517l-9.507 16.315a8 8 0 00-.094 7.89l9.571 17.36a2.5 2.5 0 004.379-2.413l-8.203-14.88a8 8 0 01.094-7.89l8.08-13.865z"
           />
         </g>
-        <g className = {"navIcon"} mask="url(#prefix__d)">
+        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,"up")}} className = {c.up} mask="url(#prefix__d)">
           <path
             //UP BG
-            onClick = {()=>{state.callbacks.press(btnPressSpeed,"up")}}
             d       = "M.5.846H340L214.548 126.298c-24.603 24.603-64.493 24.603-89.096 0L.5 1.346"
             fill    = "#38393A"
           />
@@ -249,10 +248,9 @@ const SVGRemote = props => {
             fillRule = "nonzero"
           />
         </g>
-        <g className = {"navIcon"} mask="url(#prefix__d)">
+        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,"right")}} className = {c.right} mask="url(#prefix__d)">
           <path
             // RIGHT BG
-            onClick = {()=>{state.callbacks.press(btnPressSpeed,"right")}}
             d       = "M339.5 8.12v363.188L228.369 260.177c-39.052-39.053-39.052-102.37 0-141.422l.158-.158L339.5 8.12z"
             fill    = "#38393A"
           />
@@ -265,10 +263,9 @@ const SVGRemote = props => {
         </g>
         <g mask="url(#prefix__d)">
           
-          <g className = {"navIcon"} transform="translate(131.75 151.346)">
+          <g onClick = {()=>{state.callbacks.press(btnPressSpeed,"ok")}} className = {c.ok} transform="translate(131.75 151.346)">
             <circle 
               //OK BG
-              onClick = {()=>{state.callbacks.press(btnPressSpeed,"ok")}}
               fill    = "#38393A"
               cx      = {38.132}
               cy      = {38.132}
@@ -291,10 +288,9 @@ const SVGRemote = props => {
             </text>
           </g>
         </g>
-        <g className = {"navIcon"} mask="url(#prefix__d)">
+        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,"down")}} className = {c.down} mask="url(#prefix__d)">
           <path
             //DOWN BG
-            onClick = {()=>{state.callbacks.press(btnPressSpeed,"down")}}
             d       = "M.5 378.846H340L214.548 253.393c-24.603-24.603-64.493-24.603-89.096 0L.5 378.346"
             fill    = "#38393A"
           />
@@ -346,34 +342,45 @@ let ReactRemote = ()=>{
 
     },
     disabled:false,
+    callbacks:{
+      press: (animSpeed, key)=>{
+        console.log("pressed " + key)
+        if(!state.pressed[key]){
+          let newState = {...state}
+          newState.pressed[key] = true
+          setState(newState)
+          setTimeout(()=>{
+            
+          let nextState = {...state}
+          nextState.pressed[key] = false
+          console.log(nextState)
+          setState(nextState)
+          },animSpeed)
+        }
+      
+      },
+      toggle: (key)=>{
+        console.log("toggled " + key)
+        let newState = {...state}
+        newState.active[key] = state.active[key] ? false:true
+        setState(newState)
+      }
+
+    },
     socket: StartSocket()
   })
   
-  let press = (animSpeed, key)=>{
-    if(!state.pressed[key]){
-      let newState = {...state}
-      newState.pressed[key] = true
-      setState(newState)
-      setTimeout(()=>{
-      newState[key] = newState[key] ? false:true
-      },animSpeed)
-    }
   
-  }
   
-  let toggle = (key)=>{
-    let newState = {...state}
-    newState.active[key] = state.active[key] ? false:true
-    setState(newState)
-  }
+  
 
   //TODO - not sure if this will work.
-  setState({...state,
-    callbacks:{
-      press:press,
-      toggle:toggle
-    },
-  })
+  // setState({...state,
+  //   callbacks:{
+  //     press:press,
+  //     toggle:toggle
+  //   },
+  // })
 
     
 
