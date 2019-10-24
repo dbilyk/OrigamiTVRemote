@@ -83,7 +83,7 @@ svg {
 
 
 .btn.btn__pressed > circle{
-  /* fill: #4C4D4E; */
+  fill: #272727;
   
   
   
@@ -97,138 +97,8 @@ svg {
 
 
 
-.btn__disabled > circle, .btn__disabled > path {
-  transition: all 0.15s ease-in-out;
-  opacity: 0.3;
+.btn__disabled{
+  transition: all 0.3s ease-in-out;
+  opacity:0.2;
+  touch-action: none;
 }
-
-
-
-
-/* 
-.icon{
-  height:72px;
-  width:72px;
-  fill:#FFFFFF97;
-  background-color: #2C2D2E;
-  border-radius: 100px;
-  flex:1 1 auto;
-}
-
-
-
-
-.remote--sheet{
-  touch-action: manipulation;
-  position:absolute;
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: flex-start;
-  bottom:0px;
-  background-color: #111;
-  width:100vw;
-  height:70vh;
-  border-radius:64px 64px 0 0;
-  margin-bottom:-200px;
-  overflow:hidden;
-}
-
-.header{
-  display:flex;
-  position:relative;
-  justify-content:center;
-  align-items: center;
-  text-align: center;
-  height:160px;
-  width:100vw;
-}
-
-.header > p{
-  display:inline-flex;
-  font-size:48px;
-  font-weight:800;
-  color:#eee;
-}
-
-.remote--dpad-container{
-  display:relative;
-  width:900px;
-  height:1134px;
-  border-radius:64px;
-  background-color: #222;
-  overflow:hidden;
-  
-}
-
-.btn--nav{
-  display:flex;  
-  align-items: center;
-  justify-content: center;
-  border-radius:200px;
-  background-color:#2C2D2E;
-  height:600px;
-  width:600px;
-
-}
-.btn > .material-icons{
-  display:inline;
-  font-size:200px;
-  color:#eee;
-
-}
-
-.u{
-  position: absolute;
-  top:-140px;
-  left:190px;
-  transform: rotateZ(45deg);
-}
-.u > i {
-  transform: rotateZ(-45deg) translateY(140px);
-}
-
-
-
-.d{
-  position: absolute;
-  top:730px;
-  left:190px;
-  transform: rotateZ(45deg);
-}
-.d > i {
-  transform: rotateZ(-45deg) translateY(-140px);
-}
-
-.l{
-  position: absolute;
-  top:290px;
-  left:-260px;
-  transform: rotateZ(45deg);
-}
-.l > i {
-  transform: rotateZ(-45deg) translateX(160px);
-}
-
-.r{
-  position: absolute;
-  top:290px;
-  right:-260px;
-  transform: rotateZ(45deg);
-}
-.r > i {
-  transform: rotateZ(-45deg) translateX(-160px);
-}
-
-.ok{
-  width:180px;
-  height:180px;
-  font-size:50px;
-  font-weight:800;
-  color:#eee;
-  border-radius:200px;
-  background-color:#333;
-  position:absolute;
-  top: 500px;
-  left: 400px;
-} */

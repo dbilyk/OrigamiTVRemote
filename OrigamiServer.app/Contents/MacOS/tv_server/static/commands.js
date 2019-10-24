@@ -3,22 +3,29 @@
   //reference the strings in the classnames
 
   return exports.key = {
-    left:"l",
-    right:"r",
-    up:"u",
-    down:"d",
+    left:"left",
+    right:"right",
+    up:"up",
+    down:"down",
     ok:"ok",
     back:"back",
     home:"home",
     RC:"RC",
-    volumeUp:"volumeUp",
-    volumeDn: "volumeDn",
+    keyboard:"keyboard",
+    volUp:"volUp",
+    volDn: "volDn",
+    
+    mute:"mute",
     muteOn:"muteOn",
     muteOff:"muteOff",
+
+    power:"power",
     powerOn:"powerOn",
     powerOff:"powerOff",
-    CCON:"CCON",
-    CCOFF:"CCOFF",
+
+    cc:"cc",
+    ccOn:"ccOn",
+    ccOff:"ccOff",
     more:"more"
   }
 
