@@ -4,33 +4,44 @@ body{
   margin:0;
   background-color:#000 !important;
   color:white;
+  
+}
+
+#root{
+  height:130vh;
 }
 
 svg {
   touch-action: manipulation;
   width:100vw;
   height:100vh;
-  position:sticky;
+  
+  position: absolute;
+  bottom: -180px;
+}
+
+g,path,circle{
+  touch-action: manipulation;
 }
 
 
 /*resting nav state*/
 .navIcon > path:first-child, .navIcon > circle{
-  transition: opacity 0.075s ease-in-out; 
+  transition: opacity 0.1s ease-in-out; 
   opacity: 0;
 }
 
 .navIcon tspan{
-  transition: all 0.075s ease-in-out; 
+  transition: all 0.1s ease-in-out; 
 }
 
 .navIcon > path:last-child{
-  transition: all 0.075s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 
 .navIcon.btn__pressed > path:first-child{
-  transition: all 0.075s ease-in-out; 
+  transition: all 0.1s ease-in-out; 
   opacity: 1;
 }
 
@@ -38,53 +49,64 @@ svg {
 
 
 .navIcon.btn__pressed > path:last-child{
-  transition: all 0.075s ease-in-out; 
+  transition: all 0.1s ease-in-out; 
   fill: #198ef5;
 }
 
 .navIcon.btn__pressed circle{
-  transition: all 0.075s ease-in-out; 
+  transition: all 0.1s ease-in-out; 
   opacity: 1;
 }
-.navIcon.btn__pressed tspan {
+/* .navIcon.btn__pressed  {
   fill: #198ef5;
-}
+} */
+
+
 
 /*resting volume state*/
 .volUp > path:first-child, .volDn > path:first-child{
-  transition: all 0.075s ease-in-out; 
+  transition: all 0.1s ease-in-out; 
   opacity:0;
 }
 
 .volUp > path:last-child, .volDn > path:last-child{
-  transition: all 0.075s ease-in-out; 
+  transition: all 0.1s ease-in-out; 
+  transform: scale(1,1);
   fill-opacity: 0.5;
   fill: #fff;
 }
 
+.volUp > path:last-child{
+  transform-origin: 150px 30px;
+}
+
+.volDn > path:last-child{
+transform-origin: 50px 30px;
+}
 .volUp.btn__pressed > path:first-child, .volDn.btn__pressed > path:first-child{
-  transition: all 0.075s ease-in-out; 
+  transition: all 0.1s ease-in-out; 
   opacity:1;
   
 }
 
 .volUp.btn__pressed > path:last-child, .volDn.btn__pressed > path:last-child{
-  transition: all 0.075s ease-in-out; 
+  transition: all 0.1s ease-in-out; 
+  transform: scale(0.9,0.9);
   fill-opacity: 1;
   fill: #198ef5;
 }
 
 /*resting button state*/
 .btn > circle, .btn > path{
-  transition: all 0.075s ease-in-out; 
+  transition: all 0.1s ease-in-out; 
   scale:1;
 }
 
 
 
 .btn.btn__pressed > circle{
-  transition: all 0.075s ease-in-out;
-  transform: scale(0.95,0.95) translate(2px, 2px);
+  transition: all 0.1s ease-in-out;
+  transform: scale(0.9,0.9) translate(0.8%, 0.5%);
   
   fill: #272727;
   
@@ -93,7 +115,8 @@ svg {
 }
 
 .btn.btn__pressed > path {
-  transition: all 0.075s ease-in-out; 
+  transition: all 0.1s ease-in-out; 
+  transform: scale(0.9,0.9) translate(0.8%, 0.5%);
   fill-opacity: 1;
   fill: #198ef5;
 }

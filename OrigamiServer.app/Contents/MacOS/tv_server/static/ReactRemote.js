@@ -42,7 +42,7 @@ function StartSocket(){
 //svg remote
 const SVGRemote = props => {
   let state = props.state,
-  btnPressSpeed = 75,
+  btnPressSpeed = 150,
   disabledStyles = " btn__disabled",
   pressedStyles = " btn__pressed"
 
@@ -92,11 +92,11 @@ const SVGRemote = props => {
           <use xlinkHref="#prefix__a" />
         </mask>
         <use fill="#2C2D2E" xlinkHref="#prefix__a" />
-        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.volDn, state.socket)}} className = {c.vol.dn} mask="url(#prefix__b)" fill="#FFF">
+        <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.volDn, state.socket)}} className = {c.vol.dn} mask="url(#prefix__b)" fill="#2a2a2a">
           <path  
             //VolDown BG
             d           = "M27.5.846H96v54H27.5c-14.912 0-27-12.089-27-27 0-14.912 12.088-27 27-27z"
-            fillOpacity = {0.057}
+            fillOpacity = {1}
           />
           <path
             //VolDnIcon
@@ -105,11 +105,11 @@ const SVGRemote = props => {
             fillRule    = "nonzero"
             />
         </g>
-        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.volUp, state.socket)}} className= {c.vol.up} mask="url(#prefix__b)" fill="#FFF">
+        <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.volUp, state.socket)}} className= {c.vol.up} mask="url(#prefix__b)" fill="#2a2a2a">
           <path
             //volUpBG
             d           = "M164.868.846h-68.5v54h68.5c14.912 0 27-12.089 27-27 0-14.912-12.088-27-27-27z"
-            fillOpacity = {0.057}
+            fillOpacity = {1}
           />
           <path
             //volUpIcon
@@ -125,7 +125,7 @@ const SVGRemote = props => {
           mask          = "url(#prefix__b)"
         />
       </g>
-      <g onPointerUp = {()=>{state.callbacks.toggle(COMMANDS.key.mute, state.socket)}} className = {c.mute } transform="translate(17.104 557.15)">
+      <g onPointerDown = {()=>{state.callbacks.toggle(COMMANDS.key.mute, state.socket)}} className = {c.mute } transform="translate(17.104 557.15)">
         <circle 
           //MUTE BG
           fill    = "#2C2D2E" cx = {28.896} cy = {28.851} r = {28} />
@@ -137,7 +137,7 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g onPointerUp = {()=>{state.callbacks.toggle(COMMANDS.key.cc, state.socket)}} className = {c.cc } transform="translate(300.5 557.154)">
+      <g onPointerDown = {()=>{state.callbacks.toggle(COMMANDS.key.cc, state.socket)}} className = {c.cc } transform="translate(300.5 557.154)">
         <circle 
           //CC BG
           fill    = "#2C2D2E"
@@ -153,7 +153,7 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.back, state.socket)}} className = {c.back } transform="translate(17.918 477.572)">
+      <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.back, state.socket)}} className = {c.back } transform="translate(17.918 477.572)">
         <circle 
           //BACK BG
           fill    = "#2C2D2E"
@@ -168,7 +168,7 @@ const SVGRemote = props => {
           fillRule = "nonzero"
         />
       </g>
-      <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.home, state.socket)}} className = {c.home } transform="translate(159.5 478)">
+      <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.home, state.socket)}} className = {c.home } transform="translate(159.5 478)">
         <circle     
           //HOME BG    
           fill    = "#2C2D2E"
@@ -184,7 +184,7 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.keyboard, state.socket)}} className = {c.keyboard } transform="translate(301 478)">
+      <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.keyboard, state.socket)}} className = {c.keyboard } transform="translate(301 478)">
         <circle
           //KEYBOARD BG
           fill    = "#2C2D2E"
@@ -200,7 +200,7 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g onPointerUp = {()=>{state.callbacks.toggle(COMMANDS.key.power, state.socket)}} className = {c.power } transform="translate(17.496 20.154)">
+      <g onPointerDown = {()=>{state.callbacks.toggle(COMMANDS.key.power, state.socket)}} className = {c.power } transform="translate(17.496 20.154)">
         <circle 
           //POWER BG
           fill    = "#343437"
@@ -221,11 +221,11 @@ const SVGRemote = props => {
           <use xlinkHref="#prefix__c" />
         </mask>
         <use className = {disabled} fill="#2C2D2E" xlinkHref="#prefix__c" />
-        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.left, state.socket)}} className = {c.left} mask="url(#prefix__d)">
+        <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.left, state.socket)}} className = {c.left} mask="url(#prefix__d)">
           <path
             //LEFT BG
             d       = "M.5 8.12v363.188l111.131-111.131c39.052-39.053 39.052-102.37 0-141.422a99.474 99.474 0 00-.158-.158L.5 8.12z"
-            fill    = "#272727"
+            fill    = "#2a2a2a"
             mask    = "url(#prefix__d)"
           />
           <path 
@@ -235,11 +235,11 @@ const SVGRemote = props => {
             d        = "M59.61 171.554a2.5 2.5 0 10-4.32-2.517l-9.507 16.315a8 8 0 00-.094 7.89l9.571 17.36a2.5 2.5 0 004.379-2.413l-8.203-14.88a8 8 0 01.094-7.89l8.08-13.865z"
           />
         </g>
-        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.up, state.socket)}} className = {c.up} mask="url(#prefix__d)">
+        <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.up, state.socket)}} className = {c.up} mask="url(#prefix__d)">
           <path
             //UP BG
             d       = "M.5.846H340L214.548 126.298c-24.603 24.603-64.493 24.603-89.096 0L.5 1.346"
-            fill    = "#272727"
+            fill    = "#2a2a2a"
           />
           <path
             //UP Icon
@@ -248,11 +248,11 @@ const SVGRemote = props => {
             fillRule = "nonzero"
           />
         </g>
-        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.right, state.socket)}} className = {c.right} mask="url(#prefix__d)">
+        <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.right, state.socket)}} className = {c.right} mask="url(#prefix__d)">
           <path
             // RIGHT BG
             d       = "M339.5 8.12v363.188L228.369 260.177c-39.052-39.053-39.052-102.37 0-141.422l.158-.158L339.5 8.12z"
-            fill    = "#272727"
+            fill    = "#2a2a2a"
           />
           <path
             //RIGHT icon
@@ -263,20 +263,29 @@ const SVGRemote = props => {
         </g>
         <g mask="url(#prefix__d)">
           
-          <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.ok, state.socket)}} className = {c.ok} transform="translate(131.75 151.346)">
+          <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.ok, state.socket)}} className = {c.ok} transform="translate(131.75 151.346)">
             <circle 
               //OK BG
-              fill    = "#272727"
+              fill    = "#2a2a2a"
               cx      = {38.132}
               cy      = {38.132}
               r       = {38.132}
             />
-            <text
+            <path
+                transform = "translate(25 30)"                
+                d="M13.479 8.505c0 1.47-.26 2.759-.78 3.866-.52 1.108-1.263 1.962-2.23 2.564-.967.601-2.076.902-3.327.902-1.238 0-2.342-.297-3.312-.892-.971-.595-1.723-1.444-2.256-2.548-.533-1.104-.803-2.374-.81-3.81V7.85c0-1.47.265-2.763.794-3.881.53-1.118 1.279-1.976 2.246-2.574C4.771.796 5.877.497 7.121.497c1.244 0 2.35.3 3.317.897.968.598 1.716 1.456 2.246 2.574.53 1.118.795 2.408.795 3.87v.667zM10.36 7.83c0-1.566-.28-2.755-.84-3.569-.561-.813-1.36-1.22-2.4-1.22-1.032 0-1.828.402-2.389 1.205-.56.803-.844 1.98-.851 3.532v.728c0 1.525.28 2.707.84 3.548.561.841 1.368 1.261 2.42 1.261 1.033 0 1.826-.405 2.38-1.215.553-.81.834-1.99.84-3.542v-.728zm10.237 1.815l-1.6 1.722v4.266h-3.076V.702h3.076V7.47l1.354-1.856L24.156.702h3.784l-5.302 6.634 5.455 8.296h-3.66l-3.835-5.988z"
+                fill="#979797"
+                fillRule="nonzero"
+              />
+            {/* <text
               fontFamily    = "Arial"
               fontSize      = {21}
               fontWeight    = "bold"
               letterSpacing = {0.208}
             >
+              
+              
+            
               <tspan 
                 //OK TEXT
                 x    = {23.632}
@@ -285,10 +294,10 @@ const SVGRemote = props => {
               >
                 {'OK'}
               </tspan>
-            </text>
+            </text> */}
           </g>
         </g>
-        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.down, state.socket)}} className = {c.down} mask="url(#prefix__d)">
+        <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.down, state.socket)}} className = {c.down} mask="url(#prefix__d)">
           <path
             //DOWN BG
             d       = "M.5 378.846H340L214.548 253.393c-24.603-24.603-64.493-24.603-89.096 0L.5 378.346"
@@ -341,38 +350,49 @@ let ReactRemote = ()=>{
       power:true
 
     },
-    disabled:false,
     callbacks:{
       press: (animSpeed, key, socketInstance)=>{
-        socketInstance.emit(key)
-        if(!state.pressed[key]){
-          let newState = {...state}
-          newState.pressed[key] = true
-          setState(newState)
-          setTimeout(()=>{
-            
-          let nextState = {...state}
-          nextState.pressed[key] = false
-          console.log(key)
-          setState(nextState)
-          },animSpeed)
+        if(state.active.power){
+          socketInstance.emit(key)
+          if(!state.pressed[key]){
+            let newState = {...state}
+            newState.pressed[key] = true
+            setState(newState)
+            setTimeout(()=>{
+              
+            let nextState = {...state}
+            nextState.pressed[key] = false
+            console.log(key)
+            setState(nextState)
+            },animSpeed)
+          }
         }
-      
       },
 
       //emits the command, but with On, or Off appended to it, depending on the newState.
       toggle: (key, socketInstance)=>{
-        let newState = {...state}
-        newState.active[key] = state.active[key] ? false:true
-        if(newState.active[key]){
-          socketInstance.emit(key + "On")
-          console.log(key+"On")
+        if(state.active.power){
+          let newState = {...state}
+          newState.active[key] = state.active[key] ? false:true
+          if(newState.active[key]){
+            socketInstance.emit(key + "On")
+            console.log(key+"On")
+          }
+          else{
+            socketInstance.emit(key + "Off")
+            console.log(key+"Off")
+          } 
+          setState(newState)
         }
         else{
-          socketInstance.emit(key + "Off")
-          console.log(key+"Off")
+          if(key == COMMANDS.key.power){
+            let newState = {...state}
+            newState.active[key] = state.active[key] ? false:true
+            socketInstance.emit(key + "On")
+            setState(newState)
+            
+          }
         }
-        setState(newState)
       }
 
     },

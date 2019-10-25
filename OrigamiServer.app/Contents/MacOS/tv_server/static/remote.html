@@ -15,5 +15,11 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <!-- <script type = "module" src="./socket.js"></script> -->
     <script src="./ReactRemote.js" type="text/babel"></script>
+    <script>
+      document.querySelector("html").addEventListener("touchmove",(e)=>{e.preventDefault(), e.stopPropagation()})
+      document.querySelector("html").addEventListener("dblclick",(e)=>{e.preventDefault()})
+      document.querySelector("html").addEventListener("drag",(e)=>{e.preventDefault()}) 
+      window.scrollTo(0,100)
+    </script>
   </body>
 </html>
