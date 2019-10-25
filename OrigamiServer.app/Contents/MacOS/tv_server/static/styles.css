@@ -24,6 +24,12 @@ g,path,circle{
   touch-action: manipulation;
 }
 
+g, use {
+  transition: all 0.3s ease-in-out;
+  opacity:1;
+}
+
+
 
 /*resting nav state*/
 .navIcon > path:first-child, .navIcon > circle{
@@ -57,9 +63,6 @@ g,path,circle{
   transition: all 0.1s ease-in-out; 
   opacity: 1;
 }
-/* .navIcon.btn__pressed  {
-  fill: #198ef5;
-} */
 
 
 
@@ -127,5 +130,5 @@ transform-origin: 50px 30px;
 .btn__disabled{
   transition: all 0.3s ease-in-out;
   opacity:0.2;
-  touch-action: none;
+  
 }
