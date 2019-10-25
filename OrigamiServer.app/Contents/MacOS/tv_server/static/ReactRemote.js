@@ -42,7 +42,7 @@ function StartSocket(){
 //svg remote
 const SVGRemote = props => {
   let state = props.state,
-  btnPressSpeed = 150,
+  btnPressSpeed = 75,
   disabledStyles = " btn__disabled",
   pressedStyles = " btn__pressed"
 
@@ -92,7 +92,7 @@ const SVGRemote = props => {
           <use xlinkHref="#prefix__a" />
         </mask>
         <use fill="#2C2D2E" xlinkHref="#prefix__a" />
-        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.volDn, state.socket)}} className = {c.vol.dn} mask="url(#prefix__b)" fill="#FFF">
+        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.volDn, state.socket)}} className = {c.vol.dn} mask="url(#prefix__b)" fill="#FFF">
           <path  
             //VolDown BG
             d           = "M27.5.846H96v54H27.5c-14.912 0-27-12.089-27-27 0-14.912 12.088-27 27-27z"
@@ -105,7 +105,7 @@ const SVGRemote = props => {
             fillRule    = "nonzero"
             />
         </g>
-        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.volUp, state.socket)}} className= {c.vol.up} mask="url(#prefix__b)" fill="#FFF">
+        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.volUp, state.socket)}} className= {c.vol.up} mask="url(#prefix__b)" fill="#FFF">
           <path
             //volUpBG
             d           = "M164.868.846h-68.5v54h68.5c14.912 0 27-12.089 27-27 0-14.912-12.088-27-27-27z"
@@ -125,7 +125,7 @@ const SVGRemote = props => {
           mask          = "url(#prefix__b)"
         />
       </g>
-      <g onClick = {()=>{state.callbacks.toggle(COMMANDS.key.mute, state.socket)}} className = {c.mute } transform="translate(17.104 557.15)">
+      <g onPointerUp = {()=>{state.callbacks.toggle(COMMANDS.key.mute, state.socket)}} className = {c.mute } transform="translate(17.104 557.15)">
         <circle 
           //MUTE BG
           fill    = "#2C2D2E" cx = {28.896} cy = {28.851} r = {28} />
@@ -137,7 +137,7 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g onClick = {()=>{state.callbacks.toggle(COMMANDS.key.cc, state.socket)}} className = {c.cc } transform="translate(300.5 557.154)">
+      <g onPointerUp = {()=>{state.callbacks.toggle(COMMANDS.key.cc, state.socket)}} className = {c.cc } transform="translate(300.5 557.154)">
         <circle 
           //CC BG
           fill    = "#2C2D2E"
@@ -153,7 +153,7 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g onClick = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.back, state.socket)}} className = {c.back } transform="translate(17.918 477.572)">
+      <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.back, state.socket)}} className = {c.back } transform="translate(17.918 477.572)">
         <circle 
           //BACK BG
           fill    = "#2C2D2E"
@@ -168,7 +168,7 @@ const SVGRemote = props => {
           fillRule = "nonzero"
         />
       </g>
-      <g onClick = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.home, state.socket)}} className = {c.home } transform="translate(159.5 478)">
+      <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.home, state.socket)}} className = {c.home } transform="translate(159.5 478)">
         <circle     
           //HOME BG    
           fill    = "#2C2D2E"
@@ -184,7 +184,7 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g onClick = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.keyboard, state.socket)}} className = {c.keyboard } transform="translate(301 478)">
+      <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.keyboard, state.socket)}} className = {c.keyboard } transform="translate(301 478)">
         <circle
           //KEYBOARD BG
           fill    = "#2C2D2E"
@@ -200,7 +200,7 @@ const SVGRemote = props => {
           fillRule    = "nonzero"
         />
       </g>
-      <g onClick = {()=>{state.callbacks.toggle(COMMANDS.key.power, state.socket)}} className = {c.power } transform="translate(17.496 20.154)">
+      <g onPointerUp = {()=>{state.callbacks.toggle(COMMANDS.key.power, state.socket)}} className = {c.power } transform="translate(17.496 20.154)">
         <circle 
           //POWER BG
           fill    = "#343437"
@@ -221,7 +221,7 @@ const SVGRemote = props => {
           <use xlinkHref="#prefix__c" />
         </mask>
         <use className = {disabled} fill="#2C2D2E" xlinkHref="#prefix__c" />
-        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.left, state.socket)}} className = {c.left} mask="url(#prefix__d)">
+        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.left, state.socket)}} className = {c.left} mask="url(#prefix__d)">
           <path
             //LEFT BG
             d       = "M.5 8.12v363.188l111.131-111.131c39.052-39.053 39.052-102.37 0-141.422a99.474 99.474 0 00-.158-.158L.5 8.12z"
@@ -235,7 +235,7 @@ const SVGRemote = props => {
             d        = "M59.61 171.554a2.5 2.5 0 10-4.32-2.517l-9.507 16.315a8 8 0 00-.094 7.89l9.571 17.36a2.5 2.5 0 004.379-2.413l-8.203-14.88a8 8 0 01.094-7.89l8.08-13.865z"
           />
         </g>
-        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.up, state.socket)}} className = {c.up} mask="url(#prefix__d)">
+        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.up, state.socket)}} className = {c.up} mask="url(#prefix__d)">
           <path
             //UP BG
             d       = "M.5.846H340L214.548 126.298c-24.603 24.603-64.493 24.603-89.096 0L.5 1.346"
@@ -248,7 +248,7 @@ const SVGRemote = props => {
             fillRule = "nonzero"
           />
         </g>
-        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.right, state.socket)}} className = {c.right} mask="url(#prefix__d)">
+        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.right, state.socket)}} className = {c.right} mask="url(#prefix__d)">
           <path
             // RIGHT BG
             d       = "M339.5 8.12v363.188L228.369 260.177c-39.052-39.053-39.052-102.37 0-141.422l.158-.158L339.5 8.12z"
@@ -263,7 +263,7 @@ const SVGRemote = props => {
         </g>
         <g mask="url(#prefix__d)">
           
-          <g onClick = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.ok, state.socket)}} className = {c.ok} transform="translate(131.75 151.346)">
+          <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.ok, state.socket)}} className = {c.ok} transform="translate(131.75 151.346)">
             <circle 
               //OK BG
               fill    = "#272727"
@@ -288,7 +288,7 @@ const SVGRemote = props => {
             </text>
           </g>
         </g>
-        <g onClick = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.down, state.socket)}} className = {c.down} mask="url(#prefix__d)">
+        <g onPointerUp = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.down, state.socket)}} className = {c.down} mask="url(#prefix__d)">
           <path
             //DOWN BG
             d       = "M.5 378.846H340L214.548 253.393c-24.603-24.603-64.493-24.603-89.096 0L.5 378.346"

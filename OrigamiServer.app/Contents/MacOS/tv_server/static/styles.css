@@ -13,40 +13,36 @@ svg {
   position:sticky;
 }
 
-/*
-  .navIcon should have path:first-child opacity:0
-  .navIcon.pressed should have path:first-child #??? and path:last-child 
-
-
-*/
-
 
 /*resting nav state*/
 .navIcon > path:first-child, .navIcon > circle{
-  transition: opacity 0.15s ease-in-out; 
+  transition: opacity 0.075s ease-in-out; 
   opacity: 0;
 }
 
 .navIcon tspan{
-  transition: all 0.15s ease-in-out; 
+  transition: all 0.075s ease-in-out; 
 }
 
 .navIcon > path:last-child{
-  transition: all 0.15s ease-in-out;
+  transition: all 0.075s ease-in-out;
 }
 
 
 .navIcon.btn__pressed > path:first-child{
+  transition: all 0.075s ease-in-out; 
   opacity: 1;
 }
 
 
 
 .navIcon.btn__pressed > path:last-child{
+  transition: all 0.075s ease-in-out; 
   fill: #198ef5;
 }
 
 .navIcon.btn__pressed circle{
+  transition: all 0.075s ease-in-out; 
   opacity: 1;
 }
 .navIcon.btn__pressed tspan {
@@ -55,34 +51,39 @@ svg {
 
 /*resting volume state*/
 .volUp > path:first-child, .volDn > path:first-child{
-  transition: all 0.15s ease-in-out; 
+  transition: all 0.075s ease-in-out; 
   opacity:0;
 }
 
 .volUp > path:last-child, .volDn > path:last-child{
-  transition: all 0.15s ease-in-out; 
+  transition: all 0.075s ease-in-out; 
   fill-opacity: 0.5;
   fill: #fff;
 }
 
 .volUp.btn__pressed > path:first-child, .volDn.btn__pressed > path:first-child{
+  transition: all 0.075s ease-in-out; 
   opacity:1;
   
 }
 
 .volUp.btn__pressed > path:last-child, .volDn.btn__pressed > path:last-child{
+  transition: all 0.075s ease-in-out; 
   fill-opacity: 1;
   fill: #198ef5;
 }
 
 /*resting button state*/
 .btn > circle, .btn > path{
-  transition: all 0.15s ease-in-out; 
+  transition: all 0.075s ease-in-out; 
+  scale:1;
 }
 
 
 
 .btn.btn__pressed > circle{
+  transition: all 0.075s ease-in-out;
+  scale: 0.9;
   fill: #272727;
   
   
@@ -90,6 +91,7 @@ svg {
 }
 
 .btn.btn__pressed > path {
+  transition: all 0.075s ease-in-out; 
   fill-opacity: 1;
   fill: #198ef5;
 }
