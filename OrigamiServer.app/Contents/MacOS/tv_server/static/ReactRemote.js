@@ -272,7 +272,7 @@ const SVGRemote = props => {
               r       = {38.132}
             />
             <text
-              fontFamily    = "Roboto-Bold, Roboto"
+              fontFamily    = "Arial"
               fontSize      = {21}
               fontWeight    = "bold"
               letterSpacing = {0.208}
@@ -303,7 +303,7 @@ const SVGRemote = props => {
         </g>
       </g>
       <text
-        fontFamily    = "Roboto-Bold, Roboto"
+        fontFamily    = "Arial"
         fontSize      = {17}
         fontWeight    = "bold"
         letterSpacing = {0.208}

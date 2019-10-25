@@ -36,6 +36,7 @@ svg {
 
 
 
+
 .navIcon.btn__pressed > path:last-child{
   transition: all 0.075s ease-in-out; 
   fill: #198ef5;
@@ -83,7 +84,8 @@ svg {
 
 .btn.btn__pressed > circle{
   transition: all 0.075s ease-in-out;
-  scale: 0.9;
+  transform: scale(0.95,0.95) translate(2px, 2px);
+  
   fill: #272727;
   
   
