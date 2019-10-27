@@ -103,6 +103,7 @@ const SVGRemote = props => {
             d           = "M58.845 29.237h-16.69c-.765 0-1.391-.626-1.391-1.391s.626-1.391 1.39-1.391h16.691c.765 0 1.391.626 1.391 1.39 0 .766-.626 1.392-1.39 1.392z"
             fillOpacity = {0.5}
             fillRule    = "nonzero"
+            
             />
         </g>
         <g onPointerDown = {()=>{state.callbacks.press(btnPressSpeed,COMMANDS.key.volUp, state.socket)}} className= {c.vol.up} mask="url(#prefix__b)" fill="#2a2a2a">
