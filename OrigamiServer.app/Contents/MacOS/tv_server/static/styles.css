@@ -8,16 +8,17 @@ body{
 }
 
 #root{
-  height:130vh;
+  height:100vh;
 }
 
 svg {
   touch-action: manipulation;
   width:100vw;
-  height:100vh;
+  
   
   position: absolute;
-  bottom: -180px;
+  bottom: -20px;
+  left: 0px;
 }
 
 g,path,circle{

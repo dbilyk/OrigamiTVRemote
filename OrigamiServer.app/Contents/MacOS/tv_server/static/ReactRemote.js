@@ -76,7 +76,7 @@ const SVGRemote = props => {
 
   
   return (
-  <svg width={375*3} height={653*3} viewBox="0 0 375 653">
+  <svg width={375} height={653} viewBox="0 0 375 653">
     <defs>
       <rect id="prefix__a" x={0.5} y={0.846} width={191} height={54} rx={27} />
       <rect id="prefix__c" x={0.5} y={0.846} width={339} height={378} rx={44} />
